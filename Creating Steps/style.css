@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+    /* if we add box-sizing any padding or border on to an element doesn't affect the width of it */
+    box-sizing: border-box;
+}
+
+/* We create custom properties in order make the color shift and control easier  */
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+  }
+
+body {
+    background-color: #f6f7fb;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+
+.progress-container::before {
+    /*When we use before we need to add content in a empty string so we could see the changes*/
+    content: "";
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    /* with transform we set the the line in the middle */
+    transform: translateY(-50%);
+    height: 4px;
+    /* Starting point of the line is 0 */
+    width: 100%;
+    /* with z-index we set the line behind the numbers */
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    /* with transform we set the the line in the middle */
+    transform: translateY(-50%);
+    height: 4px;
+    /* Starting point of the line is 0 */
+    width: 0%;
+    /* with z-index we set the line behind the numbers */
+    z-index: -1;
+    /* We do not want the line go directly to the next one so we set a transition with ease */
+    transition: 0.4s ease;
+}
+
+.circle {
+    background-color: var(--line-border-empty);
+    color: #999;
+    /* with border radius set to 50%  we make it rounded*/
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty);
+    transition: 0.4s ease;
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+  }
+
+.btn {
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+  }
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+  
