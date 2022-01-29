@@ -21,3 +21,6 @@ function blurring() {
 //     return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;}
 
 // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+
+
+// https://stackoverflow.com/questions/68692386/why-my-loading-text-not-stand-out-tho-it-has-bigger-z-index-than-my-background-i
